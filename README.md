@@ -25,7 +25,7 @@ use Aristides\Helpers\Validations;
 
 // Validações
 Validations::cpf('123.456.789-10'); // true or false
-Validation::email('contato@email.com') // true or false
+Validations::email('contato@email.com') // true or false
 
 // Helpers
 Helpers::money2Real('1485.48'); // 1.485,48
