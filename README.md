@@ -1,8 +1,8 @@
 # Helpers
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/aristides/helpers.svg?style=flat-square)](https://packagist.org/packages/aristides/helpers)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/aristides/helpers/Tests?label=tests)](https://github.com/aristides/helpers/actions?query=workflow%3ATests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/aristides/helpers.svg?style=flat-square)](https://packagist.org/packages/aristides/helpers)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/aristides/helpers.svg?style=flat-square)](https://packagist.org/packages/aristidesneto/helpers)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/aristides/helpers/Tests?label=tests)](https://github.com/aristidesneto/helpers/actions?query=workflow%3ATests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/aristides/helpers.svg?style=flat-square)](https://packagist.org/packages/aristidesneto/helpers)
 
 
 Conjunto de classes de `Helpers` e `Validations` para otimizar sua aplicação.
