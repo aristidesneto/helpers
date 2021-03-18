@@ -25,6 +25,9 @@ use Aristides\Helpers\Validations;
 
 // Validações
 Validations::cpf('123.456.789-10'); // true or false
+
+Validations::cnpj('11222333444455'); // true or false
+
 Validations::email('contato@email.com') // true or false
 
 // Helpers
@@ -39,6 +42,9 @@ Helpers::transformMonth(3, false); // Mar
 
 Helpers::transformWeekDays(2); // Segunda-feira
 Helpers::transformWeekDays(2, false); // Seg
+
+Helpers::mask('(##) #####-####', '12999887766'); // (12) 99988-7766
+Helpers::mask('##.###.###/####-##', '41636863000137'); // 41.636.863/0001-37
 ```
 
 ## Testes

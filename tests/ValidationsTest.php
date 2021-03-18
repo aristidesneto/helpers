@@ -24,6 +24,24 @@ class ValidationsTest extends TestCase
         }
     }
 
+    public function testCnpjIsNotValid()
+    {
+        $cnpjs = ['11222333444455', '22.444.666/0001-99'];
+
+        foreach ($cnpjs as $cnpj) {
+            $this->assertFalse(Validations::cnpj($cnpj));
+        }
+    }
+
+    public function testCnpjIsValid()
+    {
+        $cnpjs = ['41636863000137', '53.134.052/0001-17'];
+
+        foreach ($cnpjs as $cnpj) {
+            $this->assertTrue(Validations::cnpj($cnpj));
+        }
+    }
+
     public function testEmailIsValid()
     {
         $emails = [

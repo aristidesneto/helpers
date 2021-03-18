@@ -66,4 +66,37 @@ class HelpersTest extends TestCase
             $this->assertEquals($expected[$key], Helpers::transformWeekDays($day, false));
         }
     }
+
+    public function testMaskString()
+    {
+        $items = [
+            [
+                'value' => '12999887766', // celular
+                'expected' => '(12) 99988-7766',
+                'mask' => '(##) #####-####',
+            ],
+            [
+                'value' => '1233664455', // telefone
+                'expected' => '(12) 3366-4455',
+                'mask' => '(##) ####-####',
+            ],
+            [
+                'value' => '30566988744', // cpf
+                'expected' => '305.669.887-44',
+                'mask' => '???.???.???-??',
+                'character' => '?',
+            ],
+            [
+                'value' => '41636863000137', // cnpj
+                'expected' => '41.636.863/0001-37',
+                'mask' => '??.???.???/????-??',
+                'character' => '?',
+            ],
+        ];
+
+        foreach ($items as $item) {
+            $character = isset($item['character']) ? $item['character'] : '#';
+            $this->assertEquals($item['expected'], Helpers::mask($item['mask'], $item['value'], $character));
+        }
+    }
 }

@@ -92,4 +92,29 @@ class Helpers
 
         return $fullText ? $days[$value] : substr($days[$value], 0, $strLimit);
     }
+
+    /**
+     * Adiciona mascaras em uma string
+     *
+     * @param string $mask
+     * @param string $value
+     * @param string $ch
+     * @return string
+     */
+    public static function mask(string $mask, string $value, string $ch = '#') : string
+    {
+        $c = 0;
+        $result = '';
+
+        for ($i = 0; $i < strlen($mask); $i++) {
+            if ($mask[$i] == $ch) {
+                $result .= $value[$c];
+                $c++;
+            } else {
+                $result .= $mask[$i];
+            }
+        }
+
+        return $result;
+    }
 }
