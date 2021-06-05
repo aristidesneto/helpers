@@ -6,23 +6,23 @@ use PHPUnit\Framework\TestCase;
 
 class HelpersTest extends TestCase
 {
-    public function testMoney2Real()
+    public function testFormatMoneyToReal()
     {
         $value = '14524.85';
         $valueExpected = '14.524,85';
 
-        $this->assertEquals($valueExpected, Helpers::money2Real($value));
+        $this->assertEquals($valueExpected, Helpers::formatMoneyToReal($value));
     }
 
-    public function testMoney2RealWithPrefix()
+    public function testFormatMoneyToRealWithPrefix()
     {
         $value = '4629826';
         $valueExpected = 'R$ 4.629.826,00';
 
-        $this->assertEquals($valueExpected, Helpers::money2Real($value, true));
+        $this->assertEquals($valueExpected, Helpers::formatMoneyToReal($value, true));
     }
 
-    public function testMoney2Db()
+    public function testFormatMoneyToDatabase()
     {
         $values = [
             '14.587,88' => '14587.88',
@@ -31,7 +31,7 @@ class HelpersTest extends TestCase
         ];
 
         foreach ($values as $actual => $expected) {
-            $this->assertEquals($expected, Helpers::money2Db($actual));
+            $this->assertEquals($expected, Helpers::formatMoneyToDatabase($actual));
         }
     }
 

@@ -13,7 +13,7 @@ class Helpers
      * @param bool $prefix
      * @return string
      */
-    public static function money2Real(float $value, bool $prefix = false) : string
+    public static function formatMoneyToReal(float $value, bool $prefix = false) : string
     {
         $prefix = $prefix ? 'R$ ' : '';
 
@@ -27,7 +27,7 @@ class Helpers
      * @param string $value
      * @return string
      */
-    public static function money2Db(string $value) : string
+    public static function formatMoneyToDatabase(string $value) : string
     {
         $array = explode(' ', $value);
 
@@ -49,22 +49,26 @@ class Helpers
      */
     public static function transformMonth(int $value, bool $fullText = true) : string
     {
+        if ($value < 1 || $value > 12) {
+            throw new \Exception('Number is invalid');
+        }
+
         $months = [
-            1 => 'Janeiro',
-            2 => 'Fevereiro',
-            3 => 'Março',
-            4 => 'Abril',
-            5 => 'Maio',
-            6 => 'Junho',
-            7 => 'Julho',
-            8 => 'Agosto',
-            9 => 'Setembro',
-            10 => 'Outubro',
-            11 => 'Novembro',
-            12 => 'Dezembro',
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro',
         ];
 
-        return $fullText ? $months[$value] : substr($months[$value], 0, 3);
+        return $fullText ? $months[$value - 1] : substr($months[$value - 1], 0, 3);
     }
 
     /**
@@ -72,23 +76,27 @@ class Helpers
      * fulltext = true para retornar o dia da semana por inteiro
      * fullText = false para retornar as inicias do dia com 3 caracteres
      *
-     * @param string $value
+     * @param int $value
      * @param bool $fullText
      * @return string
      */
-    public static function transformWeekDays(string $value, $fullText = true) : string
+    public static function transformWeekDays(int $value, bool $fullText = true) : string
     {
+        if ($value < 0 || $value > 6) {
+            throw new \Exception('Number is invalid');
+        }
+
         $days = [
-            0 => 'Domingo',
-            1 => 'Segunda-feira',
-            2 => 'Terça-feira',
-            3 => 'Quarta-feira',
-            4 => 'Quinta-feira',
-            5 => 'Sexta-feira',
-            6 => 'Sábado',
+            'Domingo',
+            'Segunda-feira',
+            'Terça-feira',
+            'Quarta-feira',
+            'Quinta-feira',
+            'Sexta-feira',
+            'Sábado',
         ];
 
-        $strLimit = $value == 6 ? 4 : 3;
+        $strLimit = $value === 6 ? 4 : 3;
 
         return $fullText ? $days[$value] : substr($days[$value], 0, $strLimit);
     }
