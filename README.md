@@ -30,11 +30,11 @@ Validations::cnpj('11222333444455'); // true or false
 Validations::email('contato@email.com') // true or false
 
 // Helpers
-Helpers::money2Real('1485.48'); // 1.485,48
-Helpers::money2Real('873.11', true); // R$ 873,11
+Helpers::formatMoneyToReal('1485.48'); // 1.485,48
+Helpers::formatMoneyToReal('873.11', true); // R$ 873,11
 
-Helpers::money2Db('45.367,98'); // 45367.98
-Helpers::money2Db('R$ 88.475.411,89'); // 88475411.89
+Helpers::formatMoneyToDatabase('45.367,98'); // 45367.98
+Helpers::formatMoneyToDatabase('R$ 88.475.411,89'); // 88475411.89
 
 Helpers::transformMonth(3); // Março
 Helpers::transformMonth(3, false); // Mar
